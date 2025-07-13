@@ -6,35 +6,54 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-<a class="businesses-index-link" href="/businesses">
-  <div class="index-link-text">Browse Businesses</div>
-</a>
-    <h1>Create a New Business!</h1>
-  <form action="/businesses" method="POST">
-    <label for="name">Business Name:</label>
-    <input type="text" name="name" id="name" required />
+    <div class="container">
+      <a class="businesses-index-link" href="/businesses">
+        <div class="index-link-text">Browse Businesses</div>
+      </a>
+      
+      <h1>Create a New Business!</h1>
+      
+      <form action="/businesses" method="POST">
+        <div class="form-group">
+          <label for="name">Business Name:</label>
+          <input type="text" name="name" id="name" required />
+        </div>
 
-    <label for="category">Category:</label>
-    <input type="text" name="category" id="category" placeholder="e.g. Medical, IT Services" required />
+        <div class="form-group">
+          <label for="category">Category:</label>
+          <input type="text" name="category" id="category" placeholder="e.g. Medical, IT Services" required />
+        </div>
 
-    <label for="description">Description:</label>
-    <textarea name="description" id="description" rows="4"></textarea>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea name="description" id="description" rows="4"></textarea>
+        </div>
 
-    <label for="location">Location:</label>
-    <input type="text" name="location" id="location" required />
+        <div class="form-group">
+          <label for="location">Location:</label>
+          <input type="text" name="location" id="location" required />
+        </div>
 
-    <label for="phoneNumber">Phone Number:</label>
-    <input type="tel" name="phoneNumber" id="phoneNumber" placeholder="+973-1234-5678" />
+        <div class="form-group">
+          <label for="phoneNumber">Phone Number:</label>
+          <input type="tel" name="phoneNumber" id="phoneNumber" placeholder="+973-1234-5678" />
+        </div>
 
-    <label for="website">Website:</label>
-    <input type="url" name="website" id="website" placeholder="https://example.com" />
+        <div class="form-group">
+          <label for="website">Website:</label>
+          <input type="url" name="website" id="website" placeholder="https://example.com" />
+        </div>
 
-<div class="checkbox-div">
-  <label for="isVerified">Verified Listing?</label>
-  <input type="checkbox" name="isVerified" id="isVerified" />
-</div>
+        <div class="form-group checkbox-group">
+          <input type="checkbox" name="isVerified" id="isVerified" />
+          <label for="isVerified">Verified Listing?</label>
+        </div>
 
-    <button type="submit">Add Business</button>
-  </form>
+        <div class="form-actions">
+          <button type="submit" class="submit-button">Add Business</button>
+          <a href="/businesses" class="cancel-button">Cancel</a>
+        </div>
+      </form>
+    </div>
   </body>
 </html>

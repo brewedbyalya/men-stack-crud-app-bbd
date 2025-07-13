@@ -9,29 +9,31 @@
 	<body>
   <h1>Edit <%= business.name %></h1>
 <form action="/businesses/<%=business._id%>?_method=PUT" method="POST">
-        <label for="name">Business Name:</label>
-<input type="text" name="name" value="<%= business.name %>" />
-    <label for="category">Category:</label>
-    <input type="text" name="category" id="category" placeholder="e.g. Medical, IT Services" />
-
-    <label for="description">Description:</label>
-    <textarea name="description" id="description" rows="4"></textarea>
-
-    <label for="location">Location:</label>
-    <input type="text" name="location" id="location" />
-
-    <label for="phoneNumber">Phone Number:</label>
-    <input type="tel" name="phoneNumber" id="phoneNumber" placeholder="+973-1234-5678" />
-
-    <label for="website">Website:</label>
-    <input type="url" name="website" id="website" placeholder="https://example.com" />
-
-    <div class="checkbox-id">
-        <label for="isVerified">Verified Listing?</label>
-<input type="checkbox" name="isVerified" <% if (business.isVerified) { %>checked<% } %> >
-    </div>
-    <button type="submit">Update Business</button>
-  </form>
+  <label for="name">Business Name:</label>
+  <input type="text" name="name" id="name" value="<%= business.name %>" required />
+  
+  <label for="category">Category:</label>
+  <input type="text" name="category" id="category" value="<%= business.category %>" placeholder="e.g. Medical, IT Services" />
+  
+  <label for="description">Description:</label>
+  <textarea name="description" id="description" rows="4"><%= business.description %></textarea>
+  
+  <label for="location">Location:</label>
+  <input type="text" name="location" id="location" value="<%= business.location %>" />
+  
+  <label for="phoneNumber">Phone Number:</label>
+  <input type="tel" name="phoneNumber" id="phoneNumber" value="<%= business.phoneNumber %>" placeholder="+973-1234-5678" />
+  
+  <label for="website">Website:</label>
+  <input type="url" name="website" id="website" value="<%= business.website %>" placeholder="https://example.com" />
+  
+  <div class="checkbox-id">
+    <label for="isVerified">Verified Listing?</label>
+    <input type="checkbox" name="isVerified" id="isVerified" <% if (business.isVerified) { %>checked<% } %>>
+  </div>
+  
+  <button type="submit">Update Business</button>
+</form>
 
   <a class="businesses-index-link" href="/businesses">
     <div class="index-link-text">Back to All Businesses</div>

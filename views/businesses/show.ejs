@@ -1,40 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <title><%= business.name %></title> 
-  </head>
-  <body>
-		<h1><%= business.name %></h1>
-		<% if (business.isVerified) { %> ✅ Verified <% } %>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <title><%= business.name %> | Business Directory</title> 
+</head>
+<body>
+  <div class="container business-details">
 
-		<p><strong>Category:</strong> <%= business.category %></p>
+    <header class="business-header">
+      <h1><%= business.name %></h1>
+      <% if (business.isVerified) { %>
+        <span class="verified-badge">✅ Verified</span>
+      <% } %>
+    </header>
 
-		<p><strong>Description:</strong></p>
-		<p><%= business.description %></p>
+    <section class="business-info">
+      <div class="info-item">
+        <strong>Category:</strong>
+        <span><%= business.category %></span>
+      </div>
 
-		<p><strong>Location:</strong> <%= business.location %></p>
+      <div class="info-item">
+        <strong>Description:</strong>
+        <p><%= business.description %></p>
+      </div>
 
-		<p><strong>Phone:</strong> <%= business.phoneNumber %></p>
+      <div class="info-item">
+        <strong>Location:</strong>
+        <span><%= business.location %></span>
+      </div>
 
-<div class="actions">
-        <form class="delete-form" action="/businesses/<%=business._id%>?_method=DELETE" method="POST">
-          <button class="delete-button" type="submit">Delete <%= business.name %></button>
-        </form>
-        <a class="edit-link" href="/businesses/<%= business._id %>/edit">
-        <div class="edit-text">Edit <%= business.name %></div>
+      <div class="info-item">
+        <strong>Phone:</strong>
+        <span><%= business.phoneNumber %></span>
+      </div>
+
+      <% if (business.website) { %>
+      <div class="info-item">
+        <strong>Website:</strong>
+        <a href="<%= business.website %>" target="_blank" rel="noopener noreferrer">
+          <%= business.website %>
         </a>
-    </div>
+      </div>
+      <% } %>
+    </section>
 
-		<% if (business.website) { %>
-		<p>
-			<strong>Website:</strong>
-			<a href="<%= business.website %>" target="_blank">
-        <%= business.website %>
+    <div class="action-buttons">
+      <a href="/businesses/<%= business._id %>/edit" class="button edit-button">
+        Edit Business
       </a>
-		</p>
-		<% } %>
-    </body>
+      
+      <form action="/businesses/<%= business._id %>?_method=DELETE" method="POST" class="delete-form">
+        <button type="submit" class="button delete-button" 
+                onclick="return confirm('Are you sure you want to delete <%= business.name %>?')">
+          Delete Business
+        </button>
+      </form>
+      
+      <a href="/businesses" class="button back-button">
+        Back to All Businesses
+      </a>
+    </div>
+  </div>
+</body>
 </html>
