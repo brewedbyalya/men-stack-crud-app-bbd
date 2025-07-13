@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title><%= business.name %></title> 
+  </head>
+  <body>
+		<h1><%= business.name %></h1>
+		<% if (business.isVerified) { %> ✅ Verified <% } %>
+
+		<p><strong>Category:</strong> <%= business.category %></p>
+
+		<p><strong>Description:</strong></p>
+		<p><%= business.description %></p>
+
+		<p><strong>Location:</strong> <%= business.location %></p>
+
+		<p><strong>Phone:</strong> <%= business.phoneNumber %></p>
+
+<div class="actions">
+        <form class="delete-form" action="/businesses/<%=business._id%>?_method=DELETE" method="POST">
+          <button class="delete-button" type="submit">Delete <%= business.name %></button>
+        </form>
+        <a class="edit-link" href="/businesses/<%= business._id %>/edit">
+        <div class="edit-text">Edit <%= business.name %></div>
+        </a>
+    </div>
+
+		<% if (business.website) { %>
+		<p>
+			<strong>Website:</strong>
+			<a href="<%= business.website %>" target="_blank">
+        <%= business.website %>
+      </a>
+		</p>
+		<% } %>
+    </body>
+</html>
