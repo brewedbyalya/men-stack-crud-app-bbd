@@ -53,15 +53,14 @@
       </a>
       
       <form action="/businesses/<%= business._id %>?_method=DELETE" method="POST" class="delete-form">
-        <button type="submit" class="button delete-button" 
-                onclick="return confirm('Are you sure you want to delete <%= business.name %>?')">
+        <button type="submit" class="button delete-button">
           Delete Business
         </button>
       </form>
       
-      <a href="/businesses" class="button back-button">
-        Back to All Businesses
-      </a>
+       <a class="businesses-index-link" href="/businesses">
+      <div class="index-link-text">Back to All Businesses</div>
+    </a>
     </div>
   </div>
 </body>

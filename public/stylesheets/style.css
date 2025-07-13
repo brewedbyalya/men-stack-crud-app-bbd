@@ -1,11 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&display=swap");
 
-body {
-  background-color: #fff8ed;
-  font-family: "DM Sans", sans-serif;
-  text-align: center;
-}
-
 .phonebook {
   height: 30vh;
 }

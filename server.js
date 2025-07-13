@@ -19,6 +19,10 @@ const businessController = require('./controllers/businessController');
 app.use('/businesses', businessController);
 
 app.get('/', (req, res) => {
+  res.render('index.ejs');
+});
+
+app.get('/', (req, res) => {
   res.redirect('/businesses');
 });
 
