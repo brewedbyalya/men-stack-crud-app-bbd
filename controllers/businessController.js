@@ -12,6 +12,7 @@ router.get("/new", (req, res) => {
   res.render("businesses/new.ejs");
 });
 
+// new
 router.post('/', async (req, res) => {
   console.log(req.body);
   if (req.body.isVerified === 'on') {
@@ -24,12 +25,13 @@ router.post('/', async (req, res) => {
 });
 
 
+// show
 router.get('/:businessId', async (req, res) => {
   const foundBusiness = await Business.findById(req.params.businessId);
   res.render('businesses/show.ejs', { business: foundBusiness });
 });
 
-// Delete route
+// delete
 router.delete('/:businessId', async (req, res) => {
   await Business.findByIdAndDelete(req.params.businessId);
   res.redirect('/businesses');
