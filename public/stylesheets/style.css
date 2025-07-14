@@ -20,7 +20,7 @@ h1 {
   font-size: 3.6em;
 }
 
-footer {
+footer{
   font-size: 0.7em;
   position: fixed;
   left: 0;
@@ -141,24 +141,6 @@ li {
   margin: 0 20px 0 0;
   min-height: 100%;
 }
-.delete-button {
-  background-color: #f47b5b;
-  text-transform: uppercase;
-  padding: 40px 15px;
-  width: 70%;
-  /* height: 100%; */
-  font-size: 1.3em;
-  margin: 0;
-  min-height: 100%;
-}
-
-.delete-button:hover {
-  background-color: #ffbd59;
-}
-
-.delete-button:active {
-  background-color: rgb(217, 108, 78);
-}
 
 .edit-link {
   text-decoration: none;
@@ -187,4 +169,25 @@ li {
 .edit-text:active {
   background-color: #2d4d3a;
   background-color: rgb(217, 108, 78);
+}
+
+.cancel-button, .browse-button, .delete-button, .edit-button {
+  align-self: center;
+  margin: auto;
+  background-color: #3f6a51;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 15px;
+  border: none;
+  width: 15em;
+  text-decoration: none;
+  font-family: "DM Sans", sans-serif;
+}
+
+.cancel-button:hover,.browse-button:hover, .delete-button:hover, .edit-button:hover  {
+  background-color: #769642;
+}
+
+.cancel-button:active, .browse-button:active, .delete-button:active, .edit-button:active {
+  background-color: #2d4d3a;
 }
