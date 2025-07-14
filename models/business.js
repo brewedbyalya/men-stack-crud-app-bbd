@@ -8,7 +8,7 @@ const businessSchema = new mongoose.Schema(
     location: String,
     phoneNumber: String,
     website: String,
-    isVerified: {  // Fix typo: "isVerfified" → "isVerified"
+    isVerified: {
       type: Boolean,
       default: false,
     },

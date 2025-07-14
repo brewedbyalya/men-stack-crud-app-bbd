@@ -35,15 +35,26 @@ router.delete('/:businessId', async (req, res) => {
   res.redirect('/businesses');
 });
 
-// Update route
-router.put('/:businessId', async (req, res) => {
-  if (req.body.isVerified === 'on') {
-    req.body.isVerified = true;
-  } else {
-    req.body.isVerified = false;
+// edit
+router.get('/:id/edit', async (req, res) => {
+  try {
+    const business = await Business.findById(req.params.id);
+    res.render('businesses/edit.ejs', { business });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server Error');
   }
-  await Business.findByIdAndUpdate(req.params.businessId, req.body);
-  res.redirect(`/businesses/${req.params.businessId}`);
+});
+
+router.put('/:id', async (req, res) => {
+  try {
+    req.body.isVerified = req.body.isVerified === 'on';
+    await Business.findByIdAndUpdate(req.params.id, req.body);
+    res.redirect(`/businesses/${req.params.id}`);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server Error');
+  }
 });
 
 module.exports = router;

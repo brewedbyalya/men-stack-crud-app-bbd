@@ -9,7 +9,7 @@
 	<body>
   <h1>Edit <%= business.name %></h1>
 <form action="/businesses/<%=business._id%>?_method=PUT" method="POST">
-  <label for="name">Business Name:</label>
+    <label for="name">Business Name:</label>
   <input type="text" name="name" id="name" value="<%= business.name %>" required />
   
   <label for="category">Category:</label>
